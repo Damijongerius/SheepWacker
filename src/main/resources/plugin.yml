@@ -1,0 +1,4 @@
+name: SheepWacker
+version: '${project.version}'
+main: com.dami.sheepwacker.SheepWacker
+api-version: '1.20'
