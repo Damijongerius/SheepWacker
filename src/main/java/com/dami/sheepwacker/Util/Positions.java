@@ -32,8 +32,17 @@ public class Positions implements Runnable{
         for (Sheep sh : sheep){
             Location location = sh.getLocation();
             Block block = world.getBlockAt(location.getBlockX(), location.getBlockY() - 1, location.getBlockZ());
-            Bukkit.broadcastMessage(block.getType().toString());
-            sh.getColor();
+
+            if(block.getType().toString().contains("CONCRETE")){
+                DyeColor color = sh.getColor() != null ? sh.getColor() : DyeColor.WHITE;
+
+                if(compareColor(color, block.getType())){
+                    Bukkit.broadcastMessage("sheep is standing on correct position");
+                }else{
+                    Bukkit.broadcastMessage("sheep is in the wrong place");
+                }
+
+            }
 
         }
 
