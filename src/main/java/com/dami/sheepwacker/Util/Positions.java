@@ -17,12 +17,13 @@ import java.util.List;
 public class Positions implements Runnable{
 
     private final World world;
+    private final SheepWacker main;
     private final PlayArea playArea;
     public Positions(SheepWacker main){
-        BukkitScheduler scheduler = main.getServer().getScheduler();
+        this.main = main;
         this.world = main.getServer().getWorld("world");
         this.playArea = PlayArea.getInstance();
-        scheduler.scheduleSyncDelayedTask(main, this, 20L);
+        ReDo();
     }
     @Override
     public void run(){
@@ -31,11 +32,12 @@ public class Positions implements Runnable{
 
         for (Sheep sh : sheep){
             Location location = sh.getLocation();
-            Block block = world.getBlockAt(location.getBlockX(), location.getBlockY(), location.getBlockZ());
+            Block block = world.getBlockAt(location.getBlockX(), location.getBlockY() - 1, location.getBlockZ());
             Bukkit.broadcastMessage(block.getType().toString());
             sh.getColor();
-
         }
+
+        ReDo();
     }
 
     @NotNull
@@ -49,5 +51,10 @@ public class Positions implements Runnable{
         }
 
         return sheep;
+    }
+
+    private void ReDo(){
+        BukkitScheduler scheduler = main.getServer().getScheduler();
+        scheduler.scheduleSyncDelayedTask(main, this, 20L);
     }
 }
