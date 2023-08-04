@@ -1,5 +1,7 @@
 package com.dami.sheepwacker;
 
+import com.dami.sheepwacker.Game.Spawn;
+import com.dami.sheepwacker.Util.ConfigurationManager;
 import com.dami.sheepwacker.Util.Positions;
 import org.bukkit.WeatherType;
 import org.bukkit.event.EventHandler;
@@ -11,14 +13,13 @@ public final class SheepWacker extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
-        System.out.println("plugin werkt toch wel");
-        getServer().getPluginManager().registerEvents(this,this);
+        getConfig().options().copyDefaults();
+        saveDefaultConfig();
+
+        ConfigurationManager.setMainClass(this);
+
         new Positions(this);
+        new Spawn();
     }
 
-    @EventHandler
-    public void onPlayerJoin(PlayerJoinEvent e){
-        System.out.println("player joined" + e.getPlayer().getName());
-        e.setJoinMessage("welcome to being gay " + e.getPlayer().getName());
-    }
 }
