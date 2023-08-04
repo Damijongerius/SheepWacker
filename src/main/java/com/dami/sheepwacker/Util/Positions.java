@@ -1,5 +1,6 @@
 package com.dami.sheepwacker.Util;
 
+import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Sheep;
@@ -22,8 +23,9 @@ public class Positions {
         Collection<Sheep> sheep = sortOnSheep(entities);
 
         for (Sheep sh : sheep){
-            //sh.getLocation();
-            //world.getBlockAt();
+            Location location = sh.getLocation();
+            world.getBlockAt();
+            sh.getColor();
         }
     }
 

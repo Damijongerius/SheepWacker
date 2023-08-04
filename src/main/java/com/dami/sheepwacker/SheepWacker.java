@@ -1,5 +1,6 @@
 package com.dami.sheepwacker;
 
+import com.dami.sheepwacker.Util.Positions;
 import org.bukkit.WeatherType;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -12,6 +13,7 @@ public final class SheepWacker extends JavaPlugin implements Listener {
     public void onEnable() {
         System.out.println("plugin werkt toch wel");
         getServer().getPluginManager().registerEvents(this,this);
+        new Positions(getServer().getWorld("world"));
     }
 
     @EventHandler
