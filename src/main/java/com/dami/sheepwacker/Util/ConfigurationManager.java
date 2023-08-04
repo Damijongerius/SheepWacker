@@ -38,8 +38,9 @@ public class ConfigurationManager {
     public void startUp(){
         try {
             configFile = new File(main.getDataFolder(), fileName + ".yml");
-        } catch (Exception e) {
             main.saveResource( fileName+".yml", false);
+        } catch (Exception e) {
+            configFile = new File(main.getDataFolder(), fileName + ".yml");
         }
 
         config = YamlConfiguration.loadConfiguration(configFile);
@@ -47,9 +48,10 @@ public class ConfigurationManager {
 
     public void startUp(String customPathAddOn){
         try {
-            configFile = new File(main.getDataFolder() + "/" + customPathAddOn, fileName + ".yml");
-        } catch (Exception e) {
+            configFile = new File(main.getDataFolder(), fileName + ".yml");
             main.saveResource( fileName+".yml", false);
+        } catch (Exception e) {
+            configFile = new File(main.getDataFolder(), fileName + ".yml");
         }
 
         config = YamlConfiguration.loadConfiguration(configFile);
@@ -57,6 +59,10 @@ public class ConfigurationManager {
 
     public ConfigurationSection getSection(String path) throws Exception {
         return config.getConfigurationSection(path);
+    }
+
+    public FileConfiguration getConfig(){
+        return config;
     }
 
     public void setConfig(String _path, Object _info){

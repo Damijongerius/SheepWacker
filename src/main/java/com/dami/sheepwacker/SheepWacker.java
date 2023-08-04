@@ -11,15 +11,17 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class SheepWacker extends JavaPlugin implements Listener {
 
+    private Spawn spawn;
     @Override
     public void onEnable() {
-        getConfig().options().copyDefaults();
         saveDefaultConfig();
 
         ConfigurationManager.setMainClass(this);
 
         new Positions(this);
-        new Spawn();
+
+        spawn = new Spawn();
+        spawn.spawnSheep(1);
     }
 
 }
