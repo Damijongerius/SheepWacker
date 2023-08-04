@@ -1,0 +1,31 @@
+package com.dami.sheepwacker.Util;
+
+import org.bukkit.util.BoundingBox;
+import org.bukkit.util.Vector;
+
+public class PlayArea {
+
+    private final BoundingBox playArea;
+    private static PlayArea instance;
+
+    // Private constructor to prevent instantiation from other classes
+    private PlayArea() {
+        // Initialization code (if any)
+        Vector minusVector = new Vector(-18, -10, -18);
+        Vector plusVector = new Vector(18,10,18);
+        playArea = BoundingBox.of(minusVector,plusVector);
+    }
+
+    // Public static method to provide access to the single instance
+    public static PlayArea getInstance() {
+        // Lazy initialization: create the instance only when it is requested for the first time
+        if (instance == null) {
+            instance = new PlayArea();
+        }
+        return instance;
+    }
+
+    public BoundingBox getPlayArea(){
+        return playArea;
+    }
+}
