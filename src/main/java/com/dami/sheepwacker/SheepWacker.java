@@ -8,19 +8,20 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
+import java.util.concurrent.ThreadLocalRandom;
 
 public final class SheepWacker extends JavaPlugin implements Listener {
 
-    private Spawn spawn;
     @Override
     public void onEnable() {
+
         saveDefaultConfig();
 
         ConfigurationManager.setMainClass(this);
 
         new Positions(this);
 
-        spawn = new Spawn();
+        Spawn spawn = new Spawn(getServer().getWorld("world"));
         spawn.spawnSheep(1);
     }
 

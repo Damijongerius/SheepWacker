@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class ColorRandomizer {
     // Member variables (properties about the object)
-    public DyeColor[] mColors = {
+    private final static DyeColor[] mColors = {
            DyeColor.ORANGE,
             DyeColor.MAGENTA,
             DyeColor.YELLOW,
@@ -26,7 +26,7 @@ public class ColorRandomizer {
     };
 
     // Method (abilities: things the object can do)
-    public DyeColor getColor() {
+    public static DyeColor getColor() {
         DyeColor color = DyeColor.WHITE;
 
         // Randomly select a fact
