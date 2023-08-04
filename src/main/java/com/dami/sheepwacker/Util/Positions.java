@@ -59,88 +59,39 @@ public class Positions implements Runnable{
     }
 
     private boolean compareColor(DyeColor sheepColor, Material blockMaterial){
-        switch (sheepColor){
-            case RED -> {
-                if(blockMaterial == Material.RED_CONCRETE){
-                return true;
-                }
-            }
-            case BLUE -> {
-                    if(blockMaterial == Material.BLUE_CONCRETE){
-                        return true;
-                    }
+        return switch (sheepColor){
+            case RED -> blockMaterial == Material.RED_CONCRETE;
 
-            }
-            case CYAN -> {
-                if(blockMaterial == Material.CYAN_CONCRETE){
-                    return true;
-                }
-            }
-            case GRAY -> {
-                if(blockMaterial == Material.GRAY_CONCRETE){
-                    return true;
-                }
-            }
-            case LIME -> {
-                if(blockMaterial == Material.LIME_CONCRETE){
-                    return true;
-                }
-            }
-            case PINK -> {
-                if(blockMaterial == Material.PINK_CONCRETE){
-                    return true;
-                }
-            }
-            case BLACK -> {
-                if(blockMaterial == Material.BLACK_CONCRETE){
-                    return true;
-                }
-            }
-            case BROWN -> {
-                if(blockMaterial == Material.BROWN_CONCRETE){
-                    return true;
-                }
-            }
-            case GREEN -> {
-                if(blockMaterial == Material.GREEN_CONCRETE){
-                    return true;
-                }
-            }
-            case WHITE -> {
-                if(blockMaterial == Material.WHITE_CONCRETE){
-                    return true;
-                }
-            }
-            case ORANGE -> {
-                if(blockMaterial == Material.ORANGE_CONCRETE){
-                    return true;
-                }
-            }
-            case PURPLE -> {
-                if(blockMaterial == Material.PURPLE_CONCRETE){
-                    return true;
-                }
-            }
-            case YELLOW -> {
-                if(blockMaterial == Material.YELLOW_CONCRETE){
-                    return true;
-                }
-            }
-            case MAGENTA -> {
-                if(blockMaterial == Material.MAGENTA_CONCRETE){
-                    return true;
-                }
-            }
-            case LIGHT_BLUE -> {
-                if(blockMaterial == Material.LIGHT_BLUE_CONCRETE){
-                    return true;
-                }
-            }
-            case LIGHT_GRAY -> {
-                if(blockMaterial == Material.LIGHT_GRAY_CONCRETE){
-                    return true;
-                }
-            }
-        }
+            case BLUE -> blockMaterial == Material.BLUE_CONCRETE;
+
+            case CYAN -> blockMaterial == Material.CYAN_CONCRETE;
+
+            case GRAY -> blockMaterial == Material.GRAY_CONCRETE;
+
+            case LIME -> blockMaterial == Material.LIME_CONCRETE;
+
+            case PINK -> blockMaterial == Material.PINK_CONCRETE;
+
+            case BLACK -> blockMaterial == Material.BLACK_CONCRETE;
+
+            case BROWN -> blockMaterial == Material.BROWN_CONCRETE;
+
+            case GREEN -> blockMaterial == Material.GREEN_CONCRETE;
+
+            case WHITE -> blockMaterial == Material.WHITE_CONCRETE;
+
+            case ORANGE -> blockMaterial == Material.ORANGE_CONCRETE;
+
+            case PURPLE -> blockMaterial == Material.PURPLE_CONCRETE;
+
+            case YELLOW -> blockMaterial == Material.YELLOW_CONCRETE;
+
+            case MAGENTA -> blockMaterial == Material.MAGENTA_CONCRETE;
+
+            case LIGHT_BLUE -> blockMaterial == Material.LIGHT_BLUE_CONCRETE;
+
+            case LIGHT_GRAY -> blockMaterial == Material.LIGHT_GRAY_CONCRETE;
+
+        };
     }
 }
