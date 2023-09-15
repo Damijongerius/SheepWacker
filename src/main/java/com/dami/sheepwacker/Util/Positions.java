@@ -22,7 +22,7 @@ public class Positions implements Runnable{
         this.main = main;
         this.world = main.getServer().getWorld("world");
         this.playArea = PlayArea.getInstance();
-        ReDo();
+        reRun();
     }
     @Override
     public void run(){
@@ -46,7 +46,7 @@ public class Positions implements Runnable{
 
         }
 
-        ReDo();
+        reRun();
     }
 
     @NotNull
@@ -62,7 +62,7 @@ public class Positions implements Runnable{
         return sheep;
     }
 
-    private void ReDo(){
+    private void reRun(){
         BukkitScheduler scheduler = main.getServer().getScheduler();
         scheduler.scheduleSyncDelayedTask(main, this, 20L);
     }
